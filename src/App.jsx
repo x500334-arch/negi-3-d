@@ -5,14 +5,16 @@ import { MusicControl } from './components/MusicControl';
 import { useResponsive } from './hooks/useResponsive';
 import { useScrollAnimation } from './hooks/useScrollAnimation';
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 export const birthdayConfig = {
   name: 'FRIEND_NAME',
   title: 'HAPPY BIRTHDAY',
   letter: 'You make ordinary days feel like little constellations.',
   giftMessage: 'YOUR SURPRISE',
   finalMessage: 'Hope your day is as amazing as you are.',
-  photos: ['/assets/photo1.jpg', '/assets/photo2.jpg', '/assets/photo3.jpg', '/assets/photo4.jpg', '/assets/photo5.jpg'],
-  music: '/assets/music.mp3',
+  photos: [1, 2, 3, 4, 5].map((number) => asset(`/assets/photo${number}.jpg`)),
+  music: asset('/assets/music.mp3'),
 };
 
 function JourneyCopy({ progress, letterOpen, giftOpen, cakeBlown }) {
